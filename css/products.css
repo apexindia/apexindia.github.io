@@ -213,23 +213,24 @@
 .modal{
     position: fixed;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     width: 100%;
     height: 100%;
+    justify-content: center;
+    align-items: center;
     z-index: 102;
     background-color: #fff;
     display: none;
     overflow-y: auto;
     height: 100vh;
     padding: 0; 
-    bottom: 0;
+    bottom: 0; 
 }
 
 .product-card{
     background: #fff;
     width: 96%;
-    margin: 0 auto;
+    margin: auto;
     padding: 0;
     padding: 5px;
 }
@@ -246,8 +247,13 @@
     padding: 1em;
 }
 
+.product-card__title{
+    text-align: center;
+    text-transform: capitalize;
+}
+
 .modal.appear{
-    display: block;
+    display: flex;
 }
 
 .product-card__form{
@@ -263,6 +269,10 @@
 
 .product-card__form > .form_input{
     flex: 1 2 250px;
+}
+
+.form__input--product-card#name{
+    display: none;
 }
 
 .btn--form{
@@ -301,7 +311,7 @@
 
 @media screen and (min-width: 800px){
     .modal{
-        background-color: rgba(0,0,0,.6);
+        background-color: rgba(46,61,73,.95);
     }
 
     .product-card{
@@ -310,12 +320,18 @@
         padding: 0;
         padding: 5px;
         display: flex;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         border-radius: 4px;
         padding: 0;
+        animation: grow .5s ease-out;
+        position: relative;
+        margin: auto;
+    }
+
+    @keyframes grow{
+        from{transform: scale(0)}
+        to{
+            transform: scale(1);
+        }
     }
 
     .product-card__image{
@@ -329,6 +345,11 @@
         border-top-right-radius: 4px;
         border-bottom-right-radius: 4px;
         padding: 1em;
+    }
+
+    
+    .form__input--product-card#name{
+        display: block;
     }
 
     .close_card{
