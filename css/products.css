@@ -25,6 +25,30 @@
     --box-shadow: 0 13px 15px -12px rgba(0,0,0,.15);
 }
 
+@media only screen and (min-width: 768px){
+    :root{
+       --fs-1: 1rem;
+       --fs-2: 1.333rem;
+       --fs-3: 1.777rem;
+       --fs-4: 2.369rem;
+       --fs-5: 3.157rem;
+       --fs-small: 0.75rem;
+   } 
+}
+
+
+@media only screen and (max-width: 328px){
+   :root{
+       --fs-1: 1rem;
+       --fs-2: 1.15rem;
+       --fs-3: 1.35rem;
+       --fs-4: 1.6rem;
+       --fs-5: 1.9rem;
+       --fs-small: 0.8rem;
+   }
+}
+
+
 .btn--product{
     line-height: 43px;
     border: 1px solid #fe7865;
@@ -54,7 +78,7 @@
 
 .intro{
     min-height: 200px !important;
-    height: min-content;
+    height: unset;
 }
 
 .intro--product{
@@ -68,6 +92,19 @@
 .textbox--intro--product{
     background-color: peachpuff;
     padding: 1em 1em 2em 1em;
+    margin-bottom: 1.5em;
+}
+
+.intro--print::after{
+    content: '';
+    display: block;
+    width: 104%;
+    transform: translateX(-2%);
+    height: 200px;
+    background-image: url('../Images/print-1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .section__title--product{
@@ -76,6 +113,10 @@
     font-weight: 600;
     color: var(--clr-black-light);
     margin-bottom: .5em;
+    font-size: var(--fs-4);
+}
+
+.section__title--print{
     font-size: var(--fs-4);
 }
 
@@ -164,6 +205,7 @@
     position: relative;
     margin-top: -100px;
     padding-top: 100px;
+	position: relative;
 }
 
 .product{
@@ -176,12 +218,22 @@
     max-width: 450px;
 }
 
+.product--print{
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-bottom: 10px solid lightblue;
+}
+
 .product__title{
     text-align: left;
 }
 
 .product__body{
     padding: 1.5em;
+}
+
+.product__body--print{
+    border-radius: 100px;
 }
 
 .product__image{
@@ -200,10 +252,6 @@
 
 .product__image:hover .img{
     transform: scale(1.08);
-}
-
-.footer--product{
-    /* background-color: rgba(255, 218, 185, 0.452); */
 }
 
 .legal, .contact__address--GST > *{
@@ -236,8 +284,16 @@
 	animation: grow .5s ease;
 }
 
+.noSelect{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	tap-highlight-color: none;
+}
+
 @keyframes grow{
-        from{transform: scale(0.4);}
+        from{transform: scale(0.9);}
         
 		to{
             transform: scale(1);
@@ -259,6 +315,24 @@
 .product-card__title{
     text-align: center;
     text-transform: capitalize;
+	font-size: 24px;
+	margin-bottom: 1em;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.product-card__table{
+	width: 80%;
+	margin: 0 auto;
+}
+
+.product-card__th{
+	text-align: left;
+	width: 150px;
+}
+
+.product-card__td{
+	text-align: left;
 }
 
 .modal.appear{
@@ -318,6 +392,127 @@
     color: var(--clr-primary);
 }
 
+
+.swiper-container {
+    width: 80%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+@media only screen and (min-width: 620px){
+
+    .products{
+        justify-content: space-around;
+    }
+   
+    .product{
+        flex: 1 0 280px;
+    }
+
+    .product:nth-of-type(odd){
+        margin-right: 1em;
+    }
+
+    
+    .station-reached .side__link{
+        color: lightskyblue;
+    }
+
+    .product-galllery{
+        display: flex;
+    }
+}
+
+@media only screen and (min-width: 700px){
+    .swiper-container {
+    width: 40%;
+    height: 65%;
+  }
+}
+
+
+@media only screen and (min-width: 760px){
+   .intro--product{
+       padding: 2em;
+   }
+
+   .intro--print::after{
+       display: none;
+   }
+
+   .intro{
+       height: 100vh;
+   }
+   
+    .textbox--intro--product{
+        width: calc(60% - 1.5em);
+        margin-left: auto;
+        padding: 5em 3.55em 4.35em 3.55em;
+        height: 80%;
+    }
+
+    .section__title--product{
+        font-size: var(--fs-5);
+    }
+
+
+    .textbox--intro--product::before{
+        content: '';
+        display: block;
+        position: absolute;
+        left: 2em;
+        height: 71.5%;
+        width: 40%;
+        top: 2em;
+        background-color: rgb(57, 176, 192);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .textbox--intro--product--healthcare::before{
+        background-image: url('../Images/3.jpg');
+    }
+	
+	.our-products{
+		padding: 0 2em;
+	}
+
+    .section__title--product{
+        animation: fadeInUp 1.2s ease-out;
+    }
+
+    
+    .intro--product__body{
+        animation: fadeInUpLate 1.8s ease;
+    }
+
+    .btn--product{
+        animation: fadeInUpLater 2.2s ease;
+    }
+    
+}
+
+
 @media screen and (min-width: 800px){
     .modal{
         background-color: rgba(46,61,73,.95);
@@ -333,6 +528,7 @@
         padding: 0;
         position: relative;
         margin: auto;
+		animation: grow .5s ease-out;
     }
 	
 	@keyframes grow{
@@ -344,12 +540,12 @@
 }
 
 
-
     .product-card__image{
-        padding: 2px;
+        padding: 2px 20px;
         display: flex;
         justify-content: center;
         align-items: center;
+			
     }
 
     .product-card__body{
@@ -392,88 +588,6 @@
         background: var(--clr-white);
     }
         
-}
-
-
-@media only screen and (min-width: 620px){
-   
-    .products{
-        justify-content: space-around;
-    }
-   
-    .product{
-        flex: 1 0 280px;
-    }
-
-    .product:nth-of-type(odd){
-        margin-right: 1em;
-    }
-
-    
-.station-reached .side__link{
-    color: lightskyblue;
-}
-
-
-
-}
-
-
-@media only screen and (min-width: 760px){
-   .intro--product{
-       padding: 2em;
-   }
-
-   .intro{
-       height: 100vh;
-   }
-   
-    .textbox--intro--product{
-        width: calc(60% - 1.5em);
-        margin-left: auto;
-        padding: 5em 3.55em 4.35em 3.55em;
-        height: 80%;
-    }
-
-    .section__title--product{
-        font-size: var(--fs-5);
-    }
-
-    .textbox--intro--product::before{
-        content: '';
-        display: block;
-        position: absolute;
-        left: 2em;
-        height: 71.5%;
-        width: 40%;
-        top: 2em;
-        background-color: rgb(57, 176, 192);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
-    .textbox--intro--product--healthcare::before{
-        background-image: url('../Images/3.jpg');
-    }
-	
-	.our-products{
-		padding: 0 2em;
-	}
-
-    .section__title--product{
-        animation: fadeInUp 1.2s ease-out;
-    }
-
-    
-    .intro--product__body{
-        animation: fadeInUpLate 1.8s ease;
-    }
-
-    .btn--product{
-        animation: fadeInUpLater 2.2s ease;
-    }
-    
 }
 
 

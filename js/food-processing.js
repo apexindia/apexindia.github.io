@@ -8,7 +8,8 @@ const categories = [
                 Capacity: '1000 Chapati per hour',
                 'Chapati Size': '5 - 6"',
                 Frequency: '50 - 60 Hz',
-                Voltage: '380 - 440V'
+                Voltage: '380 - 440V',
+				'Power Source': 'Electric'
             },
             desc: 'Fully Automatic, Electric',
             type: 'food-processing',
@@ -21,6 +22,7 @@ const categories = [
                 Capacity: '800 Chapati per hour',
                 'Chapati Size': '4 - 5"',
                 Frequency: '60 Hz',
+                Voltage: '380 - 440V',
                 'Power Source': 'Electric'
             },
             desc: 'Semi Automatic',
@@ -130,7 +132,7 @@ const categories = [
             desc: 'Mess - Canteen, Hotels',
             details: {
                 'Base Type': 'Stainless Steel',
-                Usage: 'Restaurants, Hotels, Canteens',
+                Usage: 'Restaurants/Canteens',
                 Size: '8.3 * 3.5',
                 Voltage: '220V - 380V',
                 Frequency: '50 - 60 Hz',
@@ -178,9 +180,9 @@ categories.forEach((category, index)  => {
             <p>${product.desc}</p>
             <small>By ApexIndia</small>
         </div>
-        <div class="product__image">
+        <div class="product__image noSelect">
             <a class="product__image__link">
-                <img class="img" src="products/food-processing/food-processing-${index+1}.JPG" alt="">
+                <img class="img noSelect" src="products/food-processing/food-processing-${index+1}.JPG" alt="">
             </a>
             </div>`
         productLi.classList.add('product');
