@@ -78,7 +78,7 @@ const listView = {
 		var cat, i, cats;
 		
 		cats = octopus.getCats();
-		
+		//The loop 
 		for(i = 0; i < cats.length; i++){
 			const catLi = document.createElement('li');
 			cat = cats[i];
@@ -88,7 +88,7 @@ const listView = {
 				console.log(cat);
 			});
 			this.catsUl.appendChild(catLi);
-			/*console.log(cat);*/
+			console.log(cat);
 		}
 		console.log(cat);
 		document.querySelector('.cat-buttons').appendChild(this.catsUl);
