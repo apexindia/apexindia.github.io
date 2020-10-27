@@ -88,7 +88,7 @@ const listView = {
 				console.log(cat);
 			});
 			this.catsUl.appendChild(catLi);
-			console.log(cat);
+			/*console.log(cat);*/
 		}
 		console.log(cat);
 		document.querySelector('.cat-buttons').appendChild(this.catsUl);
@@ -112,7 +112,7 @@ const catView = {
 		const currentCat = octopus.getCurrentCat();
 		this.catName.textContent = currentCat.name;
 		this.catClicks.textContent = currentCat.clicks;
-		this.catImage.src = `Images/${currentCat.src}`;
+		this.catImage.src = `pictures/${currentCat.src}`;
 	}
 }
 
