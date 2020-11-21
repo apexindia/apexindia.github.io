@@ -3,7 +3,7 @@ let gameSpaceHeight;
 let timer;
 let drag = false;
 let score = 0;
-let dx = dy = 5;
+let dx = dy = 3;
 const pdx = 48;
 
 
@@ -22,12 +22,10 @@ function init () {
     this.ballTop = ball.getBoundingClientRect().top;
     this.paddleWidth = paddle.getBoundingClientRect().width;
 
-    gameSpace.addEventListener('mousedown', mouseDown);
-    gameSpace.addEventListener('mousemove', mouseMove);
-    gameSpace.addEventListener('mouseup', mouseUp);
-    gameSpace.addEventListener('touchstart', mouseDown);
-    gameSpace.addEventListener('touchmove', mouseDown);
-    gameSpace.addEventListener('touchend', mouseDown);
+    // gameSpace.addEventListener('mousedown', mouseDown);
+    // gameSpace.addEventListener('mousemove', mouseMove);
+    // gameSpace.addEventListener('mouseup', mouseUp);
+    gameSpace.addEventListener('click', handleClick);
 
     layoutPage();
     timer = requestAnimationFrame(play);
@@ -96,13 +94,13 @@ function collisionY() {
         /*if(ballLeft >= paddleLeft - 2 && ballLeft < paddleLeft + paddleWidth +2)
             return true;*/
         if(ballLeft > paddleLeft + paddleWidth / 4  && ballLeft < paddleLeft + paddleWidth * 3 / 4){
-            dx = dx > 0 ? 5 : -5;
+            dx = dx > 0 ? 3 : -3;
             return true; 
         }  else if (ballLeft > paddleLeft - paddleWidth / 20 && ballLeft < paddleLeft + paddleWidth / 4){
-            dx = dx > 0 ? 8 : -8; 
+            dx = dx > 0 ? 5 : -5; 
             return true;
         } else if (ballLeft > paddleLeft + paddleWidth * 3 / 4 && ballLeft < paddleLeft + paddleWidth + paddleWidth / 20){
-            dx = dx > 0 ? 8 : -8;
+            dx = dx > 0 ? 5 : -5;
             return true;
         }
     }
@@ -112,9 +110,9 @@ function collisionY() {
 function changeGameSpeed () {
     if(score % 2000 === 0){
         if(dy > 0)
-            dy += 2;
+            dy += 1;
         else 
-            dy -= 2;
+            dy -= 1;
     }
 }
 
@@ -142,4 +140,16 @@ function mouseMove (e) {
             paddleLeft = gameSpaceWidth - paddleWidth - 2;
           paddle.style.left = paddleLeft + 'px';
       }  
+}
+
+function handleClick (e) {
+    if (e.offsetX < gameSpaceWidth / 2){
+        paddleLeft -= pdx;
+        console.log('left');
+    }
+    else if (e.offsetX > gameSpaceWidth/2){     
+        paddleLeft += pdx;  
+        console.log('right');
+    }
+    paddle.style.left = paddleLeft + 'px';
 }
