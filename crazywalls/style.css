@@ -27,22 +27,28 @@ body{
     background-color: coral;
 }
 
-@media only screen and (min-width: 700px){
-    #paddle {
-         width: 120px;  
-    }
-}
-
-
 #ball{
     position: absolute;
     left: 50px;
     top: 10px;
     background-color: mistyrose;
-    height: 18px;
-    width: 18px;
-    border-radius: 16px;
+    height: 13px;
+    width: 13px;
+    border-radius: 13px;
 }
+
+@media only screen and (min-width: 700px){
+    #paddle {
+         width: 120px;  
+    }
+	
+	#ball{
+		height: 18px;
+		width: 18px;
+		border-radius: 18px;
+	}
+}
+
 
 .score-board{
     position: absolute;
